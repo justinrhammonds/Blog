@@ -1,0 +1,30 @@
+﻿@model Blog.Models.ContactMessage
+
+@{
+    ViewBag.Title = "Contact Justin";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<address>
+  <div>Justin Hammonds</div>
+  <div>406 Beall St NW</div>
+  <div>Lenoir, NC 28645</div>
+  <div><abbr title="Phone">Ph:</abbr>336-816-2598</div>
+  <div><strong><a href="mailto:justinrhammonds@gmail.com">justinrhammonds@gmail.com</a></strong></div>
+
+</address>
+<h3 class="hidden-xs">Your Name</h3>
+<input type="text" class="form-control" placeholder="Enter Your First and Last Name" id="fullname" data-validation-required-message="Please enter your first and last name." aria-invalid="false">
+<h3 class="hidden-xs">Your Email</h3>
+<input type="email" class="form-control" placeholder="Enter Your Email Address" id="email" data-validation-required-message="Please enter your email address." aria-invalid="false">
+
+<h3 class="hidden-xs">Leave a Message</h3>
+
+<textarea class="form-control" placeholder="Enter a Message" id="message" data-validation-required-message="Please enter a message."></textarea>
+
+<button type="submit" class="btn btn-primary">Send message</button>
+
+@*<img src="image/jonathan.png" class="contact-image image-responsive hidden-xs hidden-sm" alt="" />*@
+
+

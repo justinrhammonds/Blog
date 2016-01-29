@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justin Hammonds | Web & Software Developer</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/bootstrap-social.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Abel' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/creative-brands.css" rel="stylesheet" />
+    <link href="~/Content/vertical-carousel.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+  <!-- ==========================
+  NAVIGATION - START
+  =========================== -->
+
+  <header>
+    <nav class="navbar navbar-inverse navbar-fixed-top"  id="blognav">
+      <div class="navbar-header">
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><i class="fa fa-bars"></i></button>
+        @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>*@
+        <div>
+          <a href="http://jhammonds.azurewebsites.net" id="brand" class="navbar-brand animated flipInX"><span class="text-uppercase">Justin Hammonds </span><small class="tag"> web & software developer</small></a>
+        </div>
+      </div>
+
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Create New Post", "Create", "Posts")
+
+            }
+          </li>
+          <li>@Html.Partial("_LoginPartial")</li>
+        </ul>
+        
+      </div>
+
+    </nav>
+  </header>
+@*</nav>*@
+
+  <!-- ==========================
+  NAVIGATION - END
+  =========================== -->
+
+    <main class="body-content container">
+
+
+
+
+
+      @RenderBody()
+    </main>
+      <!-- ==========================
+    FOOTER - START
+  =========================== -->
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+
+              <ul class="brands brands-inline">
+                <li id="footerlinks"><a href="https://www.facebook.com/justin.hammonds.77"><i class="fa fa-facebook  hi-icon-effect-8"></i></a></li>
+                <li id="footerlinks"><a href="https://twitter.com/jhamm_84"><i class="fa fa-twitter"></i></a></li>
+                <li id="footerlinks"><a href="https://github.com/justinrhammonds"><i class="fa fa-github"></i></a></li>
+                <li id="footerlinks"><a href="https://www.linkedin.com/in/justinrhammonds"><i class="fa fa-linkedin"></i></a></li>
+              </ul>
+
+              <p><i class="fa fa-copyright"></i> Justin Hammonds | <span class="tag">All right reserved.</span></p>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- ==========================
+    FOOTER - END
+  =========================== -->
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/jhscripts/creative-brands.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

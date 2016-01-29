@@ -1,0 +1,107 @@
+﻿@model IEnumerable<Blog.Models.CodeFirst.Post>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@*
+  //model.Id -- auto
+  //model.Created -- auto
+  //model.Updated -- auto
+  //model.Title [req]
+  //model.Body [req]
+  //model.Category
+  //model.MediaUrl
+  //model.Slug -- auto
+  //model.Comments (list)
+*@
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+
+      <h1 class="page-header">
+        Page Heading
+        <small>Secondary Text</small>
+      </h1>
+
+@foreach (var item in Model)
+{
+
+    <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
+ 
+    <p><span class="glyphicon glyphicon-time"></span> @Html.DisplayFor(modelItem => item.Created)</p>
+
+    <p>
+      @if (User.IsInRole("Admin"))
+      {
+          <button class = "btn btn-sm green-btn"><i class="fa fa-pencil-square-o"></i>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+          </button> 
+
+          <button class = "btn btn-sm green-btn"><i class="fa fa-times"></i> 
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+          </button>
+      } 
+    </p>
+
+    <p>@Html.Raw(item.Body)</p>
+
+
+    if (item.MediaUrl != null)
+    {
+          <p>Media: @Html.DisplayFor(modelItem => item.MediaUrl)</p>
+    }
+          
+    @Html.ActionLink("Read More", "Details", new { slug = @item.Slug }, new { @class = "btn btn-primary" })
+
+    <hr class="blog-ridges" />
+
+}
+
+      <!-- Pager -->
+      <ul class="pager">
+        <li class="previous">
+          <a href="#">&larr; Older</a>
+        </li>
+        <li class="next">
+          <a href="#">Newer &rarr;</a>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+
+@*
+
+    @if (User.IsInRole("Admin")) {
+        @Html.ActionLink("Create New", "Create")
+    }
+
+              @Html.DisplayNameFor(model => model.Created)
+              @Html.DisplayNameFor(model => model.Updated)
+              @Html.DisplayNameFor(model => model.Title)
+              @Html.DisplayNameFor(model => model.Body)
+              @Html.DisplayNameFor(model => model.MediaUrl)
+              @Html.DisplayNameFor(model => model.Slug)
+              @Html.DisplayNameFor(model => model.Category)
+
+  @foreach (var item in Model) {
+
+              @Html.DisplayFor(modelItem => item.Created)
+
+              @Html.DisplayFor(modelItem => item.Updated)
+
+              @Html.DisplayFor(modelItem => item.Title)
+
+              @Html.Raw(item.Body)
+
+              @Html.DisplayFor(modelItem => item.MediaUrl)
+
+              @Html.DisplayFor(modelItem => item.Slug)
+
+              @Html.DisplayFor(modelItem => item.Category)
+
+              @Html.ActionLink("Edit", "Edit", new { id=item.Slug }) |
+              @Html.ActionLink("Details", "Details", new { slug=item.Slug }) |
+              @Html.ActionLink("Delete", "Delete", new { id=item.Slug })
+*@

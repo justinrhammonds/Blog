@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Blog.Models.CodeFirst.Post>
+
+  @{
+      ViewBag.Title = "Admin Page";
+  }
+
+
+  @*//model.Id -- auto
+  //model.Created -- auto
+  //model.Updated -- auto
+  //model.Title [req]
+  //model.Body [req]
+  //model.Category
+  //model.MediaUrl
+  //model.Slug -- auto
+  //model.Comments (list)*@
+
+  <h2>Admin Portal</h2>
+  <p>
+    @Html.ActionLink("Create New", "Create")
+  </p>
+  <table class="table">
+    <tr>
+      <th>
+        @Html.DisplayNameFor(model => model.Created)
+      </th>
+      <th>
+        @Html.DisplayNameFor(model => model.Updated)
+      </th>
+      <th>
+        @Html.DisplayNameFor(model => model.Title)
+      </th>
+      <th>
+        @Html.DisplayNameFor(model => model.Slug)
+      </th>
+      <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+          <td>
+            @Html.DisplayFor(modelItem => item.Created)
+          </td>
+          <td>
+            @Html.DisplayFor(modelItem => item.Updated)
+          </td>
+          <td>
+            @Html.DisplayFor(modelItem => item.Title)
+          </td>
+          <td>
+            @Html.DisplayFor(modelItem => item.Slug)
+          </td>
+          <td>
+            @Html.ActionLink("Edit Entry", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("View Entry", "Details", new { slug = item.Slug }) |
+            @Html.ActionLink("Delete Entry", "Delete", new { id = item.Id })
+          </td>
+        </tr>
+    }
+  </table>
+
