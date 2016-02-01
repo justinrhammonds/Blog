@@ -64,7 +64,7 @@ namespace Blog
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
                 ClientId = "991404432161-h4rom7b9niup83f4n8sockesnsuekfga.apps.googleusercontent.com",
-                ClientSecret = "8QGqELQoo93iTDJkDqwu5LKU"
+                ClientSecret = "fTiLMtI45pFs3P9AexBjcit3"
             });
 
             app.UseLinkedInAuthentication(
@@ -77,13 +77,11 @@ namespace Blog
                 ClientSecret = "64d88d8c65ad4af2663289ac8abcebe760864ff0"
             });
 
-            app.UseYahooAuthentication(new YahooAuthenticationOptions()
-            {
-                ConsumerKey = "dj0yJmk9QkxwZ1BXMkxxRHptJmQ9WVdrOWIzTTRibTF3TjJjbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD0yOQ--",
-                ConsumerSecret = "f7414628a3fd3b171090057cc4cf15912a7c42cf"
-            });
-
-
+            //app.UseYahooAuthentication(new YahooAuthenticationOptions
+            //{
+            //    ConsumerKey = "dj0yJmk9N1RVQXJOUko4aEtxJmQ9WVdrOU5UWXhOVkI2TXpBbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1mYw--",
+            //    ConsumerSecret = "9f7c7ad36277ad1d36b6237dfbdb7283af4611fa"
+            //});
         }
     }
 }

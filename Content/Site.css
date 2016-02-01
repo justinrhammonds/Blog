@@ -33,6 +33,7 @@ p {
 	margin: 0 0 20px;
 	font-size:16px;
 	line-height:28px;
+    color: #fff;
 }
 
 h2 {
@@ -218,22 +219,18 @@ h4 {
     background: #444;
     border-bottom: 8px solid #3d3d3d;
     font-family: 'Fjalla One', sans-serif;
-    min-height:60px;
-    padding: 15px;
 }
 
-.navbar-default {
+.navbar-inverse {
 	margin:0;
 	background-color:#444444;
-	border:none;
 	border-radius:0;
 	height:78px;
 	padding-top:3px;
 	border-bottom:8px solid rgba(0,0,0,0.1);
-	display:none;
 }
 
-.navbar-default .navbar-brand {
+.navbar-inverse .navbar-brand {
 	font-family:'Fjalla One', sans-serif;
 	padding:23px 0 0 25px;
 	color:#70afb0;
@@ -249,7 +246,7 @@ h4 {
 #brand {
 	color:#6da6a9;
     transition-duration:.3s;
-    font-size:1.5em;
+    font-size:1.7em;
 }
 
 #brand:hover {
@@ -264,11 +261,6 @@ h4 {
 	font-size:14px;
 	border-left:4px solid transparent;
 	transition-duration:0.7s;
-}
-
-#blognav li {
-    margin-left: 25px;
-    text-align:left;
 }
 
 #blognav li a {
@@ -518,6 +510,18 @@ header {
     left:3px;
 }
 
+
+.pill-button {
+    display: inline-block;
+    padding: 5px 14px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+}
+
+.other-links {
+    list-style:none;
+}
 /*------------------------------
 	QUOTES
 ------------------------------*/
@@ -849,10 +853,22 @@ modal {
     color: #fff;
 }
 
-.big-white-font {
+.big-white-font,
+form label {
     color: #fff;
     font-family: 'Fjalla One', sans-serif;
     font-size:1em;
+    font-weight:400;
+}
+
+
+
+.checkbox label {
+    padding-left:0;
+}
+
+.checkbox {
+    left: 30px;
 }
 
 .screenshot {
@@ -1143,7 +1159,7 @@ modal {
 		box-shadow:none;
 	}
 	
-	.navbar-default {	
+	.navbar-inverse {	
 		height:58px;
 		padding-top: 0;
 	}
@@ -1153,7 +1169,7 @@ modal {
 		width:55px;
 	}
 	
-	.navbar-default .navbar-toggle {
+	.navbar-inverse .navbar-toggle {
 		margin:0;
 		background-color:#70afb0;
 		border:0;
@@ -1165,8 +1181,8 @@ modal {
 		font-size:24px;
 	}
 	
-	.navbar-default .navbar-toggle:hover, 
-	.navbar-default .navbar-toggle:focus {
+	.navbar-inverse .navbar-toggle:hover, 
+	.navbar-inverse .navbar-toggle:focus {
 		background-color: #70afb0;
 	}
 	

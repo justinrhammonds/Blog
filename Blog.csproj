@@ -251,6 +251,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\creative-brands.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\second-movement.svg" />
+    <Content Include="Content\skin.min.css" />
     <Content Include="Content\vertical-carousel.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -438,6 +440,16 @@
     <Content Include="Scripts\tinymce\plugins\visualchars\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\wordcount\plugin.js" />
     <Content Include="Scripts\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="Scripts\tinymce\skins\custom\content.inline.min.css" />
+    <Content Include="Scripts\tinymce\skins\custom\content.min.css" />
+    <Content Include="Scripts\tinymce\skins\custom\fonts\tinymce-small.svg" />
+    <Content Include="Scripts\tinymce\skins\custom\fonts\tinymce.svg" />
+    <Content Include="Scripts\tinymce\skins\custom\img\anchor.gif" />
+    <Content Include="Scripts\tinymce\skins\custom\img\loader.gif" />
+    <Content Include="Scripts\tinymce\skins\custom\img\object.gif" />
+    <Content Include="Scripts\tinymce\skins\custom\img\trans.gif" />
+    <Content Include="Scripts\tinymce\skins\custom\skin.ie7.min.css" />
+    <Content Include="Scripts\tinymce\skins\custom\skin.min.css" />
     <Content Include="Scripts\tinymce\skins\lightgray\content.inline.min.css" />
     <Content Include="Scripts\tinymce\skins\lightgray\content.min.css" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
@@ -496,6 +508,18 @@
     <Content Include="Views\Posts\Details.cshtml" />
     <Content Include="Views\Posts\Edit.cshtml" />
     <Content Include="Views\Posts\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\tinymce\skins\custom\skin.json" />
+    <Content Include="Scripts\tinymce\skins\custom\Variables.less" />
+    <Content Include="Scripts\tinymce\skins\custom\fonts\readme.md" />
+    <Content Include="Scripts\tinymce\skins\custom\fonts\tinymce-small.eot" />
+    <Content Include="Scripts\tinymce\skins\custom\fonts\tinymce-small.json" />
+    <Content Include="Scripts\tinymce\skins\custom\fonts\tinymce-small.ttf" />
+    <Content Include="Scripts\tinymce\skins\custom\fonts\tinymce-small.woff" />
+    <Content Include="Scripts\tinymce\skins\custom\fonts\tinymce.eot" />
+    <Content Include="Scripts\tinymce\skins\custom\fonts\tinymce.json" />
+    <Content Include="Scripts\tinymce\skins\custom\fonts\tinymce.ttf" />
+    <Content Include="Scripts\tinymce\skins\custom\fonts\tinymce.woff" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.json" />
@@ -506,7 +530,6 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\readme.md" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
-    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

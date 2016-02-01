@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿<!-- 
+  1. decide which links to include in the header 
+  
+-->
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -22,64 +26,60 @@
 
   <header>
     <nav class="navbar navbar-inverse navbar-fixed-top"  id="blognav">
-      <div class="navbar-header">
-
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><i class="fa fa-bars"></i></button>
-        @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>*@
-        <div>
-          <a href="http://jhammonds.azurewebsites.net" id="brand" class="navbar-brand animated flipInX"><span class="text-uppercase">Justin Hammonds </span><small class="tag"> web & software developer</small></a>
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
+          <a href="http://jhammonds.azurewebsites.net" id="brand" class="navbar-brand animated flipInX">
+            <span class="text-uppercase">Justin Hammonds </span>
+            <small class="tag"> web & software developer</small>
+          </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              @if (User.IsInRole("Admin"))
+              {
+                @Html.ActionLink("Create New Post", "Create", "Posts")
+              }
+            </li>
+            <li>@Html.Partial("_LoginPartial")</li>
+          </ul>
         </div>
       </div>
-
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            @if (User.IsInRole("Admin"))
-            {
-                @Html.ActionLink("Create New Post", "Create", "Posts")
-
-            }
-          </li>
-          <li>@Html.Partial("_LoginPartial")</li>
-        </ul>
-        
-      </div>
-
     </nav>
   </header>
-@*</nav>*@
+
+  @*
+    <li><a href="#about" class="scroll">About</a></li>
+    <li><a href="#resume" class="scroll">Resume</a></li>
+    <li><a href="#portfolio" class="scroll">Portfolio</a></li>
+    <li><a href="http://jhammonds-blog.azurewebsites.net">Blog</a></li>
+    <li><a href="#contact" class="scroll">Contact</a></li>
+  *@
 
   <!-- ==========================
   NAVIGATION - END
   =========================== -->
 
     <main class="body-content container">
-
-
-
-
-
       @RenderBody()
     </main>
-      <!-- ==========================
-    FOOTER - START
+
+  <!-- ==========================
+  FOOTER - START
   =========================== -->
       <footer class="footer">
         <div class="container">
           <div class="row">
             <div class="col-sm-12">
-
               <ul class="brands brands-inline">
                 <li id="footerlinks"><a href="https://www.facebook.com/justin.hammonds.77"><i class="fa fa-facebook  hi-icon-effect-8"></i></a></li>
                 <li id="footerlinks"><a href="https://twitter.com/jhamm_84"><i class="fa fa-twitter"></i></a></li>
                 <li id="footerlinks"><a href="https://github.com/justinrhammonds"><i class="fa fa-github"></i></a></li>
                 <li id="footerlinks"><a href="https://www.linkedin.com/in/justinrhammonds"><i class="fa fa-linkedin"></i></a></li>
               </ul>
-
               <p><i class="fa fa-copyright"></i> Justin Hammonds | <span class="tag">All right reserved.</span></p>
             </div>
           </div>
@@ -88,8 +88,6 @@
       <!-- ==========================
     FOOTER - END
   =========================== -->
-
-
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

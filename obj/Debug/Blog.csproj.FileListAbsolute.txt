@@ -84,7 +84,6 @@ C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\SendGrid.Smt
 C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\SendGridMail.dll
 C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\System.Net.Http.Formatting.dll
 C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\System.Net.Http.Formatting.xml
-C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\obj\Debug\Blog.csprojResolveAssemblyReference.cache
 C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\roslyn\csc.exe.config
 C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\roslyn\csc.rsp
 C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\roslyn\csi.exe
@@ -105,3 +104,4 @@ C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\Octokit.dll
 C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\Octokit.pdb
 C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\Octokit.xml
 C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\JY.Owin.Security.Yahoo.dll
+C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\obj\Debug\Blog.csprojResolveAssemblyReference.cache

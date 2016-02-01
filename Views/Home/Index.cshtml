@@ -3,5 +3,28 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="row"><h2>Thanks For Visiting!</h2></div>
+<div class="row">
+  <div class="col-xs-6">
+    <h4>How Was This Blog Developed?</h4>
+    <p>
+      This blog was built using MVC and the Razor Engine on the ASP.NET framework. 
+      The database was constructed through Code First migrations with the Entity framework. 
+      User Authentication was further customized by adding third-party login functionality.
+      The Front End of the application was designed using the Bootstrap framework.
+    </p>
+    <h4><a href="https://github.com/justinrhammonds/blog">Check Out This Project On GitHub</a></h4>
+  </div>
+  <div class="col-xs-6">
+    <h4>@Html.ActionLink("Return To Blog Homepage", "Index", "Posts")</h4>
+    <h4><a href="https://github.com/justinrhammonds">View Other GitHub Repositories</a></h4>
+    <h4>Check Out Some Of My Other Works:</h4>
+    <ul class="other-links">
+      <li><a href="http://jhammonds.azurewebsites.net"><span class="big-white-font">Web Development Portfolio</span></a></li>
+      <li><a href="http://jhammonds-carfinder.azurewebsites.net"><span class="big-white-font">CarFinder Application</span></a></li>
+      <li><a><span class="big-white-font">BugTracker Application</span></a></li>
+      <li><a><span class="big-white-font">Financial Portal</span></a></li>
+    </ul>
+  </div>
+</div>
 
