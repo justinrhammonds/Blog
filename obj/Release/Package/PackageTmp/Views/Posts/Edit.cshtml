@@ -56,15 +56,16 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+  <button class="pill-button">
+    <i class="fa fa-undo"></i>
+    @Html.ActionLink("Blog Homepage", "Index", "Posts")
+  </button>
 
 @section Scripts {
   <script src="~/Scripts/tinymce/tinymce.min.js"></script>
   <script src="~/Scripts/tinymce/jquery.tinymce.min.js"></script>
   <script>
-    $(document).ready(function () {
+    $(window).load(function () {
       $("#editor").tinymce({});
     })
   </script>
