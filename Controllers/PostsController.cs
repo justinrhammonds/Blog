@@ -108,9 +108,11 @@ namespace Blog.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(post).Property(p => p.Body).IsModified = true;
-                db.Entry(post).Property(p => p.Updated).IsModified = true;
-                db.Entry(post).Property(p => p.MediaUrl).IsModified = true;
+                db.Entry(post).State = EntityState.Modified; //???
+                db.Entry(post).Property(p => p.Body).IsModified = true; //???
+                db.Entry(post).Property(p => p.Updated).IsModified = true; //???
+                db.Entry(post).Property(p => p.MediaUrl).IsModified = true; //???
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

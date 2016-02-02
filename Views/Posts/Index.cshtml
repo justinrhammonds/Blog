@@ -24,40 +24,44 @@
     //model.Comments (list)
 *@
   <img id="header-image" src="~/Content/second-movement.svg" />
+
+  <div class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-@foreach (var item in Model)
-{
-    <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
-    <p>
-      <span class="glyphicon glyphicon-time"></span> 
-      @item.Created.ToString("dddd, MMMM dd, yyyy")
-    </p>
-    <p>
-      @if (User.IsInRole("Admin"))
+      @foreach (var item in Model)
       {
-          <button class = "btn btn-sm green-btn"><i class="fa fa-pencil-square-o"></i>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
-          </button> 
-          <button class = "btn btn-sm green-btn"><i class="fa fa-times"></i> 
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-          </button>
-      } 
-    </p>
-    <p>@Html.Raw(item.Body)</p>
-    // as I understand it, we will be doing something a bit different with this, however 
-    // if I were to include 'references' or 'notes' for each, it could be displayed like this
-    if (item.MediaUrl != null)
-      {
-        <p>Media: @Html.DisplayFor(modelItem => item.MediaUrl)</p>
+          <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
+          <p>
+            <span class="glyphicon glyphicon-time"></span>
+            @item.Created.ToString("dddd, MMMM dd, yyyy")
+          </p>
+          <p>
+            @if (User.IsInRole("Admin"))
+            {
+                <button class="btn btn-sm green-btn">
+                  <i class="fa fa-pencil-square-o"></i>
+                  @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                </button>
+                <button class="btn btn-sm green-btn">
+                  <i class="fa fa-times"></i>
+                  @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </button>
+            }
+          </p>
+          <p>@Html.Raw(item.Body)</p>
+        // as I understand it, we will be doing something a bit different with this, however
+        // if I were to include 'references' or 'notes' for each, it could be displayed like this
+        if (item.MediaUrl != null)
+        {
+              <p>Media: @Html.DisplayFor(modelItem => item.MediaUrl)</p>
+        }
+          @Html.ActionLink("Read More", "Details", new { slug = @item.Slug }, new { @class = "btn btn-primary" })
+          <hr class="blog-ridges" />
       }
-    @Html.ActionLink("Read More", "Details", new { slug = @item.Slug }, new { @class = "btn btn-primary" })
-    <hr class="blog-ridges" />
-}
       <!-- Pager is to be implemented soon...-->
       <ul class="pager">
         <li class="previous">
-          <a href="#">&larr; Older</a> 
+          <a href="#">&larr; Older</a>
         </li>
         <li class="next">
           <a href="#">Newer &rarr;</a>
@@ -65,6 +69,7 @@
       </ul>
     </div>
   </div>
+</div>
 
 @*
     // if you need to limit to a specific role...
