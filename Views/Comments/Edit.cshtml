@@ -1,0 +1,26 @@
+﻿@model Blog.Models.CodeFirst.Comment
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="container">
+  <h2>Edit Comment</h2>
+  <p class="comment-name">Written by @Model.Author.DisplayName</p>
+  <p class="comment-date">Posted on @Model.CommentCreated.ToString("dddd, MMMM d, yyyy 'at' h:mm tt")</p>
+  <!-- Edit Comment Section -->
+  <div class="row">
+    <div class="row">
+      <form action="@Url.Action("Edit","Comments")" method="post">
+        <input type="hidden" name="PostId" value="@Model.PostId" />
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <div class="form-group">
+          <textarea class="form-control" name="Body" rows="2">@Model.Body
+            @*@Html.EditorFor(model => model.Body, new { htmlAttributes = new { @class = "form-control", rows = "3"} })*@
+          </textarea>
+        </div>
+        <input type="submit" value="Submit" class="btn btn-primary" />
+      </form>
+    </div>
+  </div>
+</div>

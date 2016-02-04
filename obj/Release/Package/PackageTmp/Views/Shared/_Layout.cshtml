@@ -8,6 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Justin Hammonds | Web & Software Developer</title>
+    <link rel="shortcut icon" href="~/favicon-teal.ico" />
     @Styles.Render("~/Content/css")
     <link href="~/Content/bootstrap-social.css" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Abel' rel='stylesheet' type='text/css'>
@@ -16,6 +17,7 @@
     <link href="~/Content/animate.css" rel="stylesheet" />
     <link href="~/Content/creative-brands.css" rel="stylesheet" />
     <link href="~/Content/vertical-carousel.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -36,16 +38,18 @@
           </a>
         </div>
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              @if (User.IsInRole("Admin"))
-              {
-                @Html.ActionLink("Create Post", "Create", "Posts")
-              }
-            </li>
-            <li>@Html.ActionLink("Blog Home", "Index", "Posts")</li>
-            <li>@Html.Partial("_LoginPartial")</li>
-          </ul>
+          <div class="container">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                @if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Create Post", "Create", "Posts")
+                }
+              </li>
+              <li>@Html.ActionLink("Blog Home", "Index", "Posts")</li>
+              <li>@Html.Partial("_LoginPartial")</li>
+            </ul>
+          </div>
         </div>
     </nav>
   </header>
@@ -62,8 +66,10 @@
   NAVIGATION - END
   =========================== -->
 
-    <main class="body-content container">
-      @RenderBody()
+    <main class="body-content">
+      @*<img id="header-image" src="~/Content/second-movement.svg" />*@
+        @RenderBody()
+
     </main>
 
   <!-- ==========================
@@ -91,6 +97,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     <script src="~/Scripts/jhscripts/creative-brands.js"></script>
+    <script src="~/Scripts/jquery.dotdotdot.min.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

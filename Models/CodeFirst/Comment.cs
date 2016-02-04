@@ -11,9 +11,10 @@ namespace Blog.Models.CodeFirst
         public int PostId { get; set; }
         public string AuthorId { get; set; }
         public string Body { get; set; }
-        public DateTimeOffset MyProperty { get; set; }
+        public DateTimeOffset CommentCreated { get; set; }
 
         public virtual Post Post { get; set; }
         public virtual ApplicationUser Author { get; set; }
     }
+
 }

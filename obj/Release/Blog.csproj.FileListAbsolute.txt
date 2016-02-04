@@ -105,3 +105,7 @@ C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\Microsoft.Ow
 C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\obj\Release\Blog.csprojResolveAssemblyReference.cache
 C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\obj\Release\Blog.dll
 C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\obj\Release\Blog.pdb
+C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\PagedList.dll
+C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\PagedList.Mvc.dll
+C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\PagedList.xml
+C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\PagedList.Mvc.xml

@@ -105,3 +105,7 @@ C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\Octokit.pdb
 C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\Octokit.xml
 C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\JY.Owin.Security.Yahoo.dll
 C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\obj\Debug\Blog.csprojResolveAssemblyReference.cache
+C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\PagedList.dll
+C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\PagedList.Mvc.dll
+C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\PagedList.xml
+C:\Users\Justin\documents\visual studio 2015\Projects\Blog\Blog\bin\PagedList.Mvc.xml

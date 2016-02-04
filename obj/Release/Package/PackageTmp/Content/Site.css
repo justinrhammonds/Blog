@@ -9,12 +9,18 @@
 	MAIN
 ------------------------------*/
 
+* {
+    outline:none;
+}
+
 body {
     background: #5c9091;
     height:100%;
     padding-top:100px;
 	font-family: 'Abel', sans-serif;
 	overflow-x:hidden;
+    color:#fff !important;
+    font-size:16px !important;
 }
 
 a, a:hover {
@@ -46,6 +52,7 @@ h2 {
 h3 {
 	color:#fff;
 	font-family:'Fjalla One', sans-serif;
+    font-size:32px;
 }
 
 h4 {
@@ -125,6 +132,10 @@ h4 {
 	color: #faaf5c;
 }
 
+main .container {
+    margin: 100px auto;
+}
+
 /*------------------------------
 	BUTTONS
 ------------------------------*/
@@ -194,6 +205,16 @@ h4 {
 	border-bottom:3px solid #446a6b;
 }
 
+.comment-admin,
+.comment-admin:hover {
+    border-radius:50%;
+    padding:6px 8px;
+    border:none;
+    height:30px;
+    width:30px;
+}
+
+
 /*------------------------------
 	ALERTS
 ------------------------------*/
@@ -227,7 +248,7 @@ h4 {
 	border-radius:0;
 	height:78px;
 	padding-top:3px;
-    padding-right:45px;
+    /*padding-right:45px;*/
 	border-bottom:8px solid rgba(0,0,0,0.1);
 }
 
@@ -293,6 +314,10 @@ h4 {
 
 .navbar-collapse.in {
     overflow-y: hidden;
+}
+
+.pages, .pagination-container {
+    text-align: center;
 }
 /*------------------------------
 	HEADER 	
@@ -518,6 +543,7 @@ header {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 15px;
+    color:#3d3d3d;
 }
 
 .other-links {
@@ -862,7 +888,25 @@ form label {
     font-weight:400;
 }
 
+.comment-name {
+    color: #fff;
+    font-family: 'Fjalla One', sans-serif;
+    font-size:1.2em;
+    font-weight:400;
+}
 
+.comment-date,
+.post-date {
+    color: #4a4a4a;
+    font-family: 'Fjalla One', sans-serif;
+    text-transform:uppercase;
+    font-size:.9em;
+    font-weight:700;
+}
+
+.comment-list {
+    text-align:right;
+}
 
 .checkbox label {
     padding-left:0;
@@ -1173,11 +1217,16 @@ form label {
 		height:58px;
 		padding-top: 0;
 	}
+
 	
 	.navbar-logo {
 		padding:5px 0 0 15px;
 		width:55px;
 	}
+
+    .nav {
+        margin-top:10px;
+    }
 	
 	.navbar-inverse .navbar-toggle {
 		margin:0;
@@ -1202,6 +1251,10 @@ form label {
 		position:relative;
 	}	
 	
+    .nav {
+        margin-top:5px;
+    }
+
 	h2 {
 		font-size:35px;	
 	}

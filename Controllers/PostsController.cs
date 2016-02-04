@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using Blog.Models;
 using Blog.Models.CodeFirst;
 using Microsoft.AspNet.Identity;
+using PagedList;
+using PagedList.Mvc;
 
 namespace Blog.Controllers
 {
@@ -18,9 +20,11 @@ namespace Blog.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Posts
-        public ActionResult Index()
+        public ActionResult Index(int?page)
         {
-            return View(db.Posts.OrderByDescending(p=>p.Created).Take(5).ToList());
+            int pageSize = 3; //display three posts per page
+            int pageNumber = (page ?? 1);
+            return View(db.Posts.OrderByDescending(p=>p.Created).ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult Admin()
@@ -104,19 +108,20 @@ namespace Blog.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Body,MediaUrl")] Post post)
+        public ActionResult Edit([Bind(Include = "Id,Title,Body,MediaUrl,Category,Slug")] Post post)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(post).State = EntityState.Modified; //???
+                post.Updated = DateTimeOffset.Now;
+                db.Posts.Attach(post);
                 db.Entry(post).Property(p => p.Body).IsModified = true; //???
-                db.Entry(post).Property(p => p.Updated).IsModified = true; //???
+                db.Entry(post).Property(p => p.Category).IsModified = true; //???
                 db.Entry(post).Property(p => p.MediaUrl).IsModified = true; //???
-
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Posts", new { slug = @post.Slug });
             }
             return View(post);
+
         }
 
         // GET: Posts/Delete/5

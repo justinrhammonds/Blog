@@ -14,7 +14,6 @@ namespace Blog.Models.CodeFirst
             this.Comments = new HashSet<Comment>();
         }
 
-
         //model.Id -- auto
         //model.Created -- auto
         //model.Updated -- auto

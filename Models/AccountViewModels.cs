@@ -6,6 +6,11 @@ namespace Blog.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Username")]
+        public string DisplayName { get; set; }
+
+        [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
@@ -64,6 +69,11 @@ namespace Blog.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Username")]
+        public string DisplayName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
