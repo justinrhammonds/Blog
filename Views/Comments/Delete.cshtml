@@ -23,10 +23,9 @@
 
         <button class="pill-button">
           <i class="fa fa-undo"></i>
-          @Html.ActionLink("Cancel", "Details", "Posts", new { slug = @Model.Post.Slug }, null)
+          @Html.ActionLink("cancel", "Details", "Posts", new { slug = @Model.Post.Slug }, null)
         </button>
     }
   </div>
 </div>
 
-@*onclick="@Url.Action("Details", "Posts", new { slug = @Model.Post.Slug })*@

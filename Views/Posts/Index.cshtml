@@ -6,74 +6,104 @@
     ViewBag.Title = "Home Page";
 }
 
-@*
-
-  <!--
-    1. need to make the DateTime human readable ... had some difficulty with formatting similar to what I used in Details View
-    2. fix the pagination to work for this page...
-    3. implement  dot dot dot for excerpts
-    4. 
-
-  -->
-
-    //model.Id -- auto
-    //model.Created -- auto
-    //model.Updated -- auto
-    //model.Title [req]
-    //model.Body [req]
-    //model.Category
-    //model.MediaUrl
-    //model.Slug -- auto
-    //model.Comments (list)
-*@
+                
   <img id="header-image" src="~/Content/second-movement.svg" />
 
-  <div class="container">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      @foreach (var item in Model)
-      {
-          <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
-          <p class="post-date">
-            <span class="glyphicon glyphicon-time"></span>
-            @item.Created.ToString("dddd, MMMM dd, yyyy")
-          </p>
-          <p>
-            @if (User.IsInRole("Admin"))
-            {
-                <button class="btn btn-sm green-btn">
-                  <i class="fa fa-pencil-square-o"></i>
-                  @Html.ActionLink("Edit", "Edit", new { id = item.Id })
-                </button>
-                <button class="btn btn-sm green-btn">
-                  <i class="fa fa-times"></i>
-                  @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                </button>
-            }
-          </p>
-          <div class="excerpt"><p>@Html.Raw(item.Body)</p></div>
-        // as I understand it, we will be doing something a bit different with this, however
-        // if I were to include 'references' or 'notes' for each, it could be displayed like this
-        if (item.MediaUrl != null)
-        {
-              <p>Media: @Html.DisplayFor(modelItem => item.MediaUrl)</p>
-        }
-          @Html.ActionLink("Read More", "Details", new { slug = @item.Slug }, new { @class = "btn btn-primary col-sm-offset-10 col-xs-offset-8" })
-          <hr class="blog-ridges" />
-      }
-      <!-- Pager is to be implemented soon...-->
-      <p class="pages">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</p>
-      @*<ul class="pager">
-        <li class="previous">
-          <a href="#">&larr; Older</a>
-        </li>
-        <li class="next">
-          <a href="#">Newer &rarr;</a>
-        </li>
-      </ul>*@
+  <div class="container" id="index-top">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <div class="input-group">
+          <input id="search" placeholder="Search This Blog..." type="text" class="form-control">
+          <span class="input-group-btn">
+            <button class="btn btn-default green-btn" type="button">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+        </div>
+      </div>
+      <div class="col-xs-2"></div>
     </div>
-  </div>
+    <div class="row spacer"></div>
+  @foreach (var item in Model)
+  {
+      <div class="row">
+          @if (item.MediaUrl != null)
+          {
+            <div class="col-sm-4">
+              <img class="img-responsive" src="@Url.Content(item.MediaUrl)" alt="" />
+            </div>
+            <div class="col-sm-8">
+              <div class="col-sm-12">
+                <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
+                <p class="post-date">
+                  <span class="glyphicon glyphicon-time"></span>
+                  @item.Created.ToString("dddd, MMMM dd, yyyy")
+                  <span>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <button class="btn btn-sm green-btn">
+                          <i class="fa fa-pencil-square-o"></i>
+                          @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                        </button>
+                        <button class="btn btn-sm green-btn">
+                          <i class="fa fa-times"></i>
+                          @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </button>
+                    }
+                  </span>
+                </p>
+              </div>
+              <div class="excerpt">
+                <p>@Html.Raw(item.Body)</p>
+              </div>
+              <div>
+                @Html.ActionLink("Read More", "Details", new { slug = @item.Slug }, new { @class = "btn btn-primary read-more" })
+              </div>
+            </div>
+          }
+          else
+          {
+            <div class="col-sm-12">
+              <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
+              <p class="post-date">
+                <span class="glyphicon glyphicon-time"></span>
+                @item.Created.ToString("dddd, MMMM dd, yyyy")
+                <span>
+                  @if (User.IsInRole("Admin"))
+                  {
+                      <button class="btn btn-sm green-btn">
+                        <i class="fa fa-pencil-square-o"></i>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                      </button>
+                      <button class="btn btn-sm green-btn">
+                        <i class="fa fa-times"></i>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                      </button>
+                  }
+                </span>
+              </p>
+              <div class="excerpt">
+                <p>@Html.Raw(item.Body)</p>
+              </div>
+              @Html.ActionLink("Read More", "Details", new { slug = @item.Slug }, new { @class = "btn btn-primary read-more" })
+            </div>
+          }
+        
+      </div>
+      <div class="row">    
+        <div class="col-sm-12">
+            <hr class="blog-ridges" />
+        </div>
+      </div>
+      
+
+  }
+    <div class="row center-button"><a class="comment-date pill-button" href="#">back to top</a></div>
 </div>
+
+<!-- PagedList -->
+<p class="pages">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</p>
+
 
 @section Scripts {
   <script>
@@ -96,7 +126,7 @@
 
         /*	Optionally set a max-height, can be a number or function.
           If null, the height will be measured. */
-        height: 100,
+        height: 200,
 
         /*	Deviation for the height-option. */
         tolerance: 0,

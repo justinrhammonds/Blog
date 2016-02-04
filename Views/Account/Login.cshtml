@@ -40,7 +40,10 @@
                 <div class="form-group">
                   <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Log in" class="btn btn-lg btn-primary" />
-                    <span class="big-white-font">@Html.ActionLink("Or Return To Blog Homepage", "Index", "Posts")</span>
+                    <button class="pill-button">
+                      <i class="fa fa-undo"></i>
+                      @Html.ActionLink("cancel", "Index", "Posts")
+                    </button>
                     @*<span class="big-white-font">@Html.ActionLink("Or Click Here To Register", "Register")</span>*@
                   </div>
 

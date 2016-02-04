@@ -11,6 +11,7 @@ using Blog.Models.CodeFirst;
 using Microsoft.AspNet.Identity;
 using PagedList;
 using PagedList.Mvc;
+using System.IO;
 
 namespace Blog.Controllers
 {
@@ -57,10 +58,10 @@ namespace Blog.Controllers
         // POST: Posts/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Body,MediaUrl,Category")] Post post)
+        [Authorize(Roles = "Admin")]
+        public ActionResult Create([Bind(Include = "Id,Title,Body,MediaUrl,Category")] Post post, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
@@ -74,6 +75,13 @@ namespace Blog.Controllers
                 {
                     ModelState.AddModelError("Title", "The title must be unique.");
                     return View(post);
+                }
+                //restrict the the valid file formats to images only
+                if (ImageUploadValidator.IsWebFriendlyImage(image))
+                {
+                    var fileName = Path.GetFileName(image.FileName);
+                    image.SaveAs(Path.Combine(Server.MapPath("~/Content/img/MediaUrl/"), fileName));
+                    post.MediaUrl = "~/Content/img/MediaUrl/" + fileName;
                 }
                 post.Slug = Slug;
                 post.Created = DateTimeOffset.Now;
@@ -105,18 +113,25 @@ namespace Blog.Controllers
         // POST: Posts/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Body,MediaUrl,Category,Slug")] Post post)
+        [Authorize(Roles = "Admin")]
+        public ActionResult Edit([Bind(Include = "Id,Title,Body,MediaUrl,Category,Slug")] Post post, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
-                post.Updated = DateTimeOffset.Now;
                 db.Posts.Attach(post);
+                //restrict the the valid file formats to images only
+                if (ImageUploadValidator.IsWebFriendlyImage(image))
+                {
+                    var fileName = Path.GetFileName(image.FileName);
+                    image.SaveAs(Path.Combine(Server.MapPath("~/Content/img/MediaUrl/"), fileName));
+                    post.MediaUrl = "~/Content/img/MediaUrl/" + fileName;
+                    db.Entry(post).Property(p => p.MediaUrl).IsModified = true;
+                }
+                post.Updated = DateTimeOffset.Now;
                 db.Entry(post).Property(p => p.Body).IsModified = true; //???
                 db.Entry(post).Property(p => p.Category).IsModified = true; //???
-                db.Entry(post).Property(p => p.MediaUrl).IsModified = true; //???
                 db.SaveChanges();
                 return RedirectToAction("Details", "Posts", new { slug = @post.Slug });
             }

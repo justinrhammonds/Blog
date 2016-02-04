@@ -133,7 +133,11 @@ h4 {
 }
 
 main .container {
-    margin: 100px auto;
+    margin: 30px auto 50px auto;
+}
+
+.spacer {
+    height: 100px;
 }
 
 /*------------------------------
@@ -212,6 +216,11 @@ main .container {
     border:none;
     height:30px;
     width:30px;
+}
+
+.read-more {
+    float:right;
+    margin-right: 40px;
 }
 
 
@@ -318,6 +327,10 @@ main .container {
 
 .pages, .pagination-container {
     text-align: center;
+}
+
+.center-button {
+    text-align:center;
 }
 /*------------------------------
 	HEADER 	

@@ -21,6 +21,12 @@
         </div>
         <input type="submit" value="Submit" class="btn btn-primary" />
       </form>
+      <button class="pill-button">
+        <i class="fa fa-undo"></i>
+        @Html.ActionLink("cancel", "Details", "Posts", new { slug = @Model.Post.Slug }, null)
+      </button>
     </div>
   </div>
 </div>
+
+
