@@ -21,11 +21,22 @@ namespace Blog.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Posts
-        public ActionResult Index(int?page)
+        public ActionResult Index(int?page, string searchTerm)
         {
-            int pageSize = 3; //display three posts per page
+            int pageSize = 5; //display five posts per page
             int pageNumber = (page ?? 1);
-            return View(db.Posts.OrderByDescending(p=>p.Created).ToPagedList(pageNumber, pageSize));
+            var listPosts = db.Posts.AsQueryable();
+            ViewBag.Search = searchTerm;
+
+            if(!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                listPosts = listPosts.Where(
+                    p => p.Title.Contains(searchTerm) || 
+                    p.Body.Contains(searchTerm) || 
+                    p.Comments.Any(c => c.Body.Contains(searchTerm)));
+            } 
+            
+            return View(listPosts.OrderByDescending(p=>p.Created).ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult Admin()
@@ -175,6 +186,18 @@ namespace Blog.Controllers
             }
             base.Dispose(disposing);
         }
-
     }
 }
+
+//DONE--form with a URl.Action and input name=query
+//create a viewbag in controller 
+//ViewBag.Query = query;
+//var qposts = db.Posts.AsQueryable();
+//(page, query...)
+//check if Search is not null
+//if(!string.IsNullOrWhitespace(query))
+    //qposts = qposts.Where(p => p.Title.Contains(query) || ... p.Comments.Any(c => c.Body.Contains(query) ...
+      
+    
+//    return a list of posts where CONTAINS "string"
+    

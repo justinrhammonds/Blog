@@ -6,36 +6,31 @@
     ViewBag.Title = "Home Page";
 }
 
-@*
-
-  <!--
-    1. need to make the DateTime human readable ... had some difficulty with formatting similar to what I used in Details View
-    2. fix the pagination to work for this page...
-    3. implement  dot dot dot for excerpts
-    4. 
-
-  -->
-
-    //model.Id -- auto
-    //model.Created -- auto
-    //model.Updated -- auto
-    //model.Title [req]
-    //model.Body [req]
-    //model.Category
-    //model.MediaUrl
-    //model.Slug -- auto
-    //model.Comments (list)
-*@
+                
   <img id="header-image" src="~/Content/second-movement.svg" />
 
-  <div class="container">
+  <div class="container" id="index-top">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <div>
+          <form action="@Url.Action("Index","Posts")">
+            <div class="form-group">
+              <input placeholder="Search This Blog..." type="text" name="searchTerm" value="@ViewBag.Search" class="form-control" />
+              <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-xs-2"></div>
+    </div>
+    <div class="row spacer"></div>
   @foreach (var item in Model)
   {
       <div class="row">
           @if (item.MediaUrl != null)
           {
             <div class="col-sm-4">
-              <img class="img-responsive" src="@Url.Content(item.MediaUrl)" alt="" />
+              <img class="img-border img-responsive" src="@Url.Content(item.MediaUrl)" alt="" />
             </div>
             <div class="col-sm-8">
               <div class="col-sm-12">
@@ -61,7 +56,9 @@
               <div class="excerpt">
                 <p>@Html.Raw(item.Body)</p>
               </div>
-              @Html.ActionLink("Read More", "Details", new { slug = @item.Slug }, new { @class = "btn btn-primary col-sm-offset-10 col-xs-offset-8" })
+              <div>
+                @Html.ActionLink("Read More", "Details", new { slug = @item.Slug }, new { @class = "btn btn-primary read-more" })
+              </div>
             </div>
           }
           else
@@ -88,7 +85,7 @@
               <div class="excerpt">
                 <p>@Html.Raw(item.Body)</p>
               </div>
-              @Html.ActionLink("Read More", "Details", new { slug = @item.Slug }, new { @class = "btn btn-primary col-sm-offset-10 col-xs-offset-8" })
+              @Html.ActionLink("Read More", "Details", new { slug = @item.Slug }, new { @class = "btn btn-primary read-more" })
             </div>
           }
         
@@ -101,11 +98,11 @@
       
 
   }
-    <a class="comment-date pill-button" href="#">back to top</a>
+    <div class="row center-button"><a class="comment-date pill-button" href="#">back to top</a></div>
 </div>
 
 <!-- PagedList -->
-<p class="pages">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</p>
+<p class="pages">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("Index", new { page, currentFilter = ViewBag.Search}))</p>
 
 
 @section Scripts {

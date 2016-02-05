@@ -1,0 +1,8 @@
+﻿To-Do List
+- add image to details/delete pages
+-customize pagedlist
+-Back To Top Button to Center (details/delete), and styled
+- search bar to popover menu...
+-contact page
+-logout page
+-manage page

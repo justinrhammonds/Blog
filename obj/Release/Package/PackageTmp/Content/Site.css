@@ -11,6 +11,7 @@
 
 * {
     outline:none;
+    text-decoration:none;
 }
 
 body {
@@ -23,7 +24,7 @@ body {
     font-size:16px !important;
 }
 
-a, a:hover {
+a, a:hover, a:focus, a:active {
     text-decoration: none;
     color: inherit;
 }
@@ -133,7 +134,34 @@ h4 {
 }
 
 main .container {
-    margin: 100px auto;
+    margin: 30px auto 50px auto;
+}
+
+.spacer {
+    height: 100px;
+}
+
+#search {
+    position: absolute;
+    top:-360px;
+    left: 220px;
+}
+
+.text-danger {
+    color: #bf3e08;
+    font-weight:bolder;
+}
+
+#special-link {
+    color: #9ddd98;
+}
+
+.img-border {
+    border: 5px double #fff;
+}
+
+.body-content {
+    min-height:400px;
 }
 
 /*------------------------------
@@ -151,13 +179,21 @@ main .container {
 
 .btn-primary,
 .btn-modal {
-	background-color:#f28659;
-	border-color:#df5f29;
+	background-color:#e78359;
+	border-color:#d86d40;
 }
 
 .green-btn {
     background-color:#65b264;
     border-color:#5ba15a;
+}
+
+.green-btn:hover,
+.green-btn:active,
+.green-btn:focus {
+    color:#fff;
+    background-color:#5ba15a;
+    border-color:#497c48;
 }
 
 .social {
@@ -212,6 +248,11 @@ main .container {
     border:none;
     height:30px;
     width:30px;
+}
+
+.read-more {
+    float:right;
+    margin-right: 40px;
 }
 
 
@@ -286,7 +327,6 @@ main .container {
 }
 
 #blognav li a {
-	color:#fff;
     border-left: 4px solid transparent;
     transition-duration:.3s;
     padding-right:20px;
@@ -319,6 +359,15 @@ main .container {
 .pages, .pagination-container {
     text-align: center;
 }
+
+.center-button {
+    text-align:center;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+     color: inherit; 
+}
+
 /*------------------------------
 	HEADER 	
 ------------------------------*/
@@ -539,11 +588,19 @@ header {
 
 .pill-button {
     display: inline-block;
-    padding: 5px 14px;
+    padding: 7px 16px;
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 15px;
+    border-radius: 20px;
     color:#3d3d3d;
+}
+
+.pill-button:hover,
+.pill-button:active,
+.pill-button:focus
+{
+    color:#3d3d3d;
+    background-color:#e3e3e3;
 }
 
 .other-links {

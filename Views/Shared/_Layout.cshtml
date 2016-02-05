@@ -40,7 +40,7 @@
         <div class="navbar-collapse collapse">
           <div class="container">
             <ul class="nav navbar-nav navbar-right">
-              <li>
+              <li id="special-link">
                 @if (User.IsInRole("Admin"))
                 {
                     @Html.ActionLink("Create Post", "Create", "Posts")
@@ -54,20 +54,11 @@
     </nav>
   </header>
 
-  @*
-    <li><a href="#about" class="scroll">About</a></li>
-    <li><a href="#resume" class="scroll">Resume</a></li>
-    <li><a href="#portfolio" class="scroll">Portfolio</a></li>
-    <li><a href="http://jhammonds-blog.azurewebsites.net">Blog</a></li>
-    <li><a href="#contact" class="scroll">Contact</a></li>
-  *@
-
   <!-- ==========================
   NAVIGATION - END
   =========================== -->
 
     <main class="body-content">
-      @*<img id="header-image" src="~/Content/second-movement.svg" />*@
         @RenderBody()
 
     </main>

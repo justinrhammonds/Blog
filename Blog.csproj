@@ -265,6 +265,7 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\second-movement.svg" />
     <Content Include="Content\skin.min.css" />
+    <Content Include="Content\To-Do-List.txt" />
     <Content Include="Content\vertical-carousel.css" />
     <Content Include="favicon-teal.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
