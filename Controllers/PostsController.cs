@@ -21,21 +21,29 @@ namespace Blog.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Posts
-        public ActionResult Index(int?page, string searchTerm)
+        public ActionResult Index(int?page, string searchFilter, string searchTerm)
         {
             int pageSize = 5; //display five posts per page
             int pageNumber = (page ?? 1);
             var listPosts = db.Posts.AsQueryable();
+            if (searchTerm != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchTerm = searchFilter;
+            }
+
             ViewBag.Search = searchTerm;
 
-            if(!string.IsNullOrWhiteSpace(searchTerm))
+            if (!string.IsNullOrWhiteSpace(searchTerm))
             {
                 listPosts = listPosts.Where(
                     p => p.Title.Contains(searchTerm) || 
                     p.Body.Contains(searchTerm) || 
                     p.Comments.Any(c => c.Body.Contains(searchTerm)));
-            } 
-            
+            }
             return View(listPosts.OrderByDescending(p=>p.Created).ToPagedList(pageNumber, pageSize));
         }
 

@@ -1,4 +1,5 @@
 ﻿To-Do List
+-----------
 - add image to details/delete pages
 -customize pagedlist
 -Back To Top Button to Center (details/delete), and styled
@@ -6,3 +7,4 @@
 -contact page
 -logout page
 -manage page
+-look into BUTTON PADDING, particularly on the edit, delete buttons
