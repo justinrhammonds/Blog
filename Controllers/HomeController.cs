@@ -18,7 +18,7 @@ namespace Blog.Controllers
             return View();
         }
 
-
+        [Authorize]
         public ActionResult Contact()
         {
             return View();
@@ -27,17 +27,22 @@ namespace Blog.Controllers
         [HttpPost]
         public ActionResult Contact(ContactMessage contact)
         {
-            var Emailer = new EmailService();
-            var email = new IdentityMessage
+            if (ModelState.IsValid)
             {
-                Subject = "Message",
-                Destination = ConfigurationManager.AppSettings["ContactEmail"],
-                Body = "You have a new message from: " + contact.Name + " (" + 
-                    contact.Email + ") with the following contents: \n\n" + contact.Message
-            };
-            Emailer.SendAsync(email);
-
-            return RedirectToAction("index", "Post");
+                var Emailer = new EmailService();
+                var email = new IdentityMessage
+                {
+                    Subject = "Message",
+                    Destination = ConfigurationManager.AppSettings["ContactEmail"],
+                    Body = "You have a new message from: " + contact.Name + " (" +
+                        contact.Email + ") with the following contents: \n\n" + contact.Message
+                };
+                Emailer.SendAsync(email);
+                ViewBag.Message = "Your Message Was Sent Successfully.";
+                return RedirectToAction("Index", "Posts");
+            }
+            return View(contact);
         }
+           
     }
 }

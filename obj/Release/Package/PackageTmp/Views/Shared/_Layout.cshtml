@@ -46,7 +46,13 @@
                     @Html.ActionLink("Create Post", "Create", "Posts")
                 }
               </li>
-              <li>@Html.ActionLink("Blog Home", "Index", "Posts")</li>
+              <li>@Html.ActionLink("Blog", "Index", "Posts")</li>
+              <li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @Html.ActionLink("Contact", "Contact", "Home")
+                }
+              </li>
               <li>@Html.Partial("_LoginPartial")</li>
             </ul>
           </div>

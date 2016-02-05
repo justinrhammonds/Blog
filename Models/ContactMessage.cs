@@ -8,11 +8,11 @@ namespace Blog.Models
 {
     public class ContactMessage
     {
-        [Required]
+        [Required(ErrorMessage = "Please enter your name")]
         public string Name { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter your email")]
         public string Email { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter a message")]
         public string Message { get; set; }
     }
 }

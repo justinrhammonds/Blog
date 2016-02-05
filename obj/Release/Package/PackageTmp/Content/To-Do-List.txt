@@ -3,8 +3,8 @@
 -add image to details/delete pages
 -customize pagedlist
 -Back To Top Button to Center (details/delete), and styled
--search bar to popover menu...
--contact page
--logout page
+-style contact page
+-style logout page
 -manage page
 -look into BUTTON PADDING, particularly on the edit, delete buttons
+-test external login confirmation (getting the email fields)

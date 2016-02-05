@@ -4,7 +4,8 @@
     ViewBag.Title = "Contact Justin";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
 
 <address>
   <div>Justin Hammonds</div>
@@ -12,19 +13,26 @@
   <div>Lenoir, NC 28645</div>
   <div><abbr title="Phone">Ph:</abbr>336-816-2598</div>
   <div><strong><a href="mailto:justinrhammonds@gmail.com">justinrhammonds@gmail.com</a></strong></div>
-
 </address>
-<h3 class="hidden-xs">Your Name</h3>
-<input type="text" class="form-control" placeholder="Enter Your First and Last Name" id="fullname" data-validation-required-message="Please enter your first and last name." aria-invalid="false">
-<h3 class="hidden-xs">Your Email</h3>
-<input type="email" class="form-control" placeholder="Enter Your Email Address" id="email" data-validation-required-message="Please enter your email address." aria-invalid="false">
 
-<h3 class="hidden-xs">Leave a Message</h3>
+@using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+    @*----NAME----*@
+    <h3 class="hidden-xs">Your Name</h3>
+    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Enter Your First and Last Name", id = "fullname" })
+    @Html.ValidationMessageFor(m => m.Name, null, new { @class = "text-danger" })
 
-<textarea class="form-control" placeholder="Enter a Message" id="message" data-validation-required-message="Please enter a message."></textarea>
+    @*----EMAIL----*@
+    <h3 class="hidden-xs">Your Email</h3>
+    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Enter Your Email Address", @id = "email", @type="email"})
+    @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
 
-<button type="submit" class="btn btn-primary">Send message</button>
-
-@*<img src="image/jonathan.png" class="contact-image image-responsive hidden-xs hidden-sm" alt="" />*@
-
+    @*----MESSAGE----*@
+    <h3 class="hidden-xs">Leave a Message</h3>
+    @Html.TextAreaFor(m => m.Message, new { @class = "form-control", @placeholder = "Enter Your Message Here", @id = "message", @type = "email", @rows="4" })
+    @Html.ValidationMessageFor(m => m.Message, null, new { @class = "text-danger" })
+    <button type="submit" class="btn btn-primary">Send message</button>
+}
 
