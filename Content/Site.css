@@ -164,6 +164,25 @@ main .container {
     min-height:400px;
 }
 
+.sticky-search {
+    position:fixed;
+    bottom: 20px;
+    right:20px;
+}
+
+#login {
+    z-index:1000;
+}
+
+.popover {
+    max-width: 600px;
+    position:fixed;
+}
+
+.popover .form-control {
+    width:275px;
+}
+
 /*------------------------------
 	BUTTONS
 ------------------------------*/
@@ -191,6 +210,7 @@ main .container {
 .green-btn:hover,
 .green-btn:active,
 .green-btn:focus {
+    outline:none;
     color:#fff;
     background-color:#5ba15a;
     border-color:#497c48;

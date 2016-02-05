@@ -1,5 +1,4 @@
-﻿@*@model IEnumerable<Blog.Models.CodeFirst.Post>*@
-@model IPagedList<Blog.Models.CodeFirst.Post>
+﻿@model IPagedList<Blog.Models.CodeFirst.Post>
 @using PagedList;
 @using PagedList.Mvc;
 @{
@@ -12,14 +11,22 @@
   <div class="container" id="index-top">
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
-        <div>
-          <form action="@Url.Action("Index", "Posts", new { searchTerm=ViewBag.Search })">
+
+        @*<a class="sticky-search" data-placement="bottom" data-toggle="popover" data-title="Login" data-container="body" type="button" data-html="true" href="#" id="login">Search</a>
+
+        <div id="popover-content" class="hide">
+          <form class="form-inline" action="@Url.Action("Index", "Posts", new { searchTerm=ViewBag.Search })">
             <div class="form-group">
               <input placeholder="Search This Blog..." type="text" name="searchTerm" value="@ViewBag.Search" class="form-control" />
               <input type="submit" value="Search" class="btn btn-primary" />
             </div>
           </form>
-        </div>
+        </div>*@
+
+
+
+
+
       </div>
       <div class="col-xs-2"></div>
     </div>
@@ -107,11 +114,10 @@
     <p class="pages">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchFilter=ViewBag.Search }))</p>
 }
 
-
-
 @section Scripts {
   <script>
     $(document).ready(function () {
+
       $(".excerpt").dotdotdot({
         /*	The text to add as ellipsis. */
         ellipsis: '... ',
@@ -151,6 +157,8 @@
       });
     });
   </script>
+
+
 
 }
 

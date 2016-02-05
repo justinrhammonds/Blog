@@ -59,6 +59,16 @@
   =========================== -->
 
     <main class="body-content">
+      <button class="sticky-search btn green-btn" data-placement="left" data-toggle="popover" @*data-title="Go ahead, Search My Blog" data-container="body"*@ @*type="button"*@ data-html="true" href="#" id="login">Go Ahead, Search My Blog</button>
+
+      <div id="popover-content" class="hide">
+        <form class="form-inline" action="@Url.Action("Index", "Posts", new { searchTerm=ViewBag.Search })">
+          <div class="form-group">
+            <input placeholder="Anything of Interest to You?" type="text" name="searchTerm" value="@ViewBag.Search" class="form-control popover-search" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+          </div>
+        </form>
+      </div>
         @RenderBody()
 
     </main>
@@ -89,6 +99,15 @@
     @Scripts.Render("~/bundles/bootstrap")
     <script src="~/Scripts/jhscripts/creative-brands.js"></script>
     <script src="~/Scripts/jquery.dotdotdot.min.js"></script>
+
+    <script>
+      $("[data-toggle=popover]").popover({
+        html: true,
+        content: function () {
+        return $('#popover-content').html();
+        }
+      });
+    </script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
