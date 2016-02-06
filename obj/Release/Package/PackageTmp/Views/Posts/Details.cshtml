@@ -35,7 +35,8 @@
       <div class="row">
         @if ((System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
         {
-            <h4>Leave a Comment:</h4>
+            <h4>Leave a Comment</h4>
+            <hr class="blog-ridges" />
             <form action="@Url.Action("Create","Comments")" method="post">
               <input type="hidden" name="PostId" value="@Model.Id" />
               <div class="form-group">
@@ -45,7 +46,8 @@
             </form>
         } else
         {
-            <h3><a href="@Url.Action("Login", "Account")">Login to Leave a Comment</a></h3>
+            <h4 style="text-align:right;"><a href="@Url.Action("Login", "Account")">Login to Comment</a></h4>
+            <hr class="blog-ridges" />
         }
 
       </div>
@@ -64,11 +66,11 @@
                   {
                       <button class="btn btn-sm green-btn">
                         <i class="fa fa-pencil-square-o"></i>
-                        @Html.ActionLink("edit", "Edit", "Comments", new { id = comment.Id }, null)
+                        @Html.ActionLink("Edit", "Edit", "Comments", new { id = comment.Id }, null)
                       </button>
                       <button class="btn btn-sm green-btn">
                         <i class="fa fa-pencil-square-o"></i>
-                        @Html.ActionLink("delete", "Delete", "Comments", new { id = comment.Id }, null)
+                        @Html.ActionLink("Delete", "Delete", "Comments", new { id = comment.Id }, null)
                       </button>
 
                   }
@@ -76,11 +78,10 @@
 
               </div>
             </div>
-            <hr class="blog-ridges" />
         }
       </div>
       </div>
-      <a class="comment-date pill-button" href="#">back to top</a>
+      <div class="row center-button"><a class="comment-date pill-button" href="#">back to top</a></div>
     </div>
   </div>
 </div>

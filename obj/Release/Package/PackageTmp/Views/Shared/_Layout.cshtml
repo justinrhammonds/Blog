@@ -65,12 +65,12 @@
   =========================== -->
 
     <main class="body-content">
-      <button class="sticky-search btn green-btn" data-placement="left" data-toggle="popover" @*data-title="Go ahead, Search My Blog" data-container="body"*@ @*type="button"*@ data-html="true" href="#" id="login">Go Ahead, Search My Blog</button>
+      <button class="sticky-search btn green-btn" data-placement="top" data-toggle="popover" @*data-title="Go ahead, Search My Blog" data-container="body"*@ @*type="button"*@ data-html="true" href="#" id="login">Go Ahead, Search My Blog</button>
 
       <div id="popover-content" class="hide">
         <form class="form-inline" action="@Url.Action("Index", "Posts", new { searchTerm=ViewBag.Search })">
           <div class="form-group">
-            <input placeholder="Anything of Interest to You?" type="text" name="searchTerm" value="@ViewBag.Search" class="form-control popover-search" />
+            <input placeholder="Anything Interest You?" type="text" name="searchTerm" value="@ViewBag.Search" class="form-control popover-search" />
             <input type="submit" value="Search" class="btn btn-primary" />
           </div>
         </form>
@@ -92,7 +92,7 @@
                 <li id="footerlinks"><a href="https://github.com/justinrhammonds"><i class="fa fa-github"></i></a></li>
                 <li id="footerlinks"><a href="https://www.linkedin.com/in/justinrhammonds"><i class="fa fa-linkedin"></i></a></li>
               </ul>
-              <p><i class="fa fa-copyright"></i> Justin Hammonds | <span class="tag">All right reserved.</span></p>
+              <p><i class="fa fa-copyright"></i>@DateTimeOffset.Now.ToString("yyyy") Justin Hammonds | <span class="tag">All right reserved.</span></p>
             </div>
           </div>
         </div>

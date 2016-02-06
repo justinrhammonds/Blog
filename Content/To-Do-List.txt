@@ -1,6 +1,40 @@
 ﻿To-Do List
 -----------
--add image to details/delete pages
+
+Layout:
+-Search Btn Size on smaller screens
+
+Index:
+-image size on smaller screens (CSS)
+
+Details:
+-image size on smaller screens (CSS)
+-add image to details page
+
+Delete:
+-add image to delete page
+
+Create:
+-fix outer margin
+
+Edit/Delete Comments:
+-Side Margins, please
+
+Register:
+
+
+
+
+
+------------
+Contact Page: STYLING
+Home Index: STYLING
+Change Password: ?
+Manage Index: ?
+Manage Logins: ?
+SetPassword: ?
+
+
 -customize pagedlist
 -Back To Top Button to Center (details/delete), and styled
 -style contact page

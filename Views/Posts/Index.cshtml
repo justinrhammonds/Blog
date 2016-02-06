@@ -106,13 +106,15 @@
 
   }
     <div class="row center-button"><a class="comment-date pill-button" href="#">back to top</a></div>
+    <!-- PagedList -->
+    @if (Model.PageCount > 1)
+    {
+        <br />
+        <p class="pages">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchFilter = ViewBag.Search }))</p>
+    }
 </div>
 
-<!-- PagedList -->
-@if (Model.PageCount > 1)
-{
-    <p class="pages">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchFilter=ViewBag.Search }))</p>
-}
+
 
 @section Scripts {
   <script>

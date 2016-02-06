@@ -175,12 +175,17 @@ main .container {
 }
 
 .popover {
-    max-width: 600px;
+    width:275px;
+    max-width: 700px;
     position:fixed;
 }
 
 .popover .form-control {
-    width:275px;
+    width:175px;
+}
+
+.pages li  {
+    color:
 }
 
 /*------------------------------
@@ -378,6 +383,36 @@ main .container {
 
 .pages, .pagination-container {
     text-align: center;
+}
+
+.pages {
+    font-family: 'Fjalla One', sans-serif;
+    text-transform:uppercase;
+    font-weight:900;
+    color: #444;
+    border:none !important;
+    margin-bottom:0;
+}
+
+.pagination > .active > a {
+    background-color:#4d4d4d !important;
+    border:none !important;
+    color: #fff !important;
+}
+
+.pagination > .active > a:hover {
+    background-color:#4d4d4d !important;
+}
+
+.pagination > li > a {
+    color: #444 !important;
+    border:none !important;
+    font-weight: 700 !important;
+    font-family: 'Fjalla One', sans-serif !important;
+}
+
+.pagination > li > a:hover {
+    background-color:#e3e3e3 !important;
 }
 
 .center-button {
@@ -610,7 +645,7 @@ header {
     display: inline-block;
     padding: 7px 16px;
     background-color: #fff;
-    border: 1px solid #ddd;
+    border-bottom: 4px solid #bbb;
     border-radius: 20px;
     color:#3d3d3d;
 }

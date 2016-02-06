@@ -14,9 +14,9 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-          <input type="submit" value="delete" class="btn btn-lg green-btn" />
+          <input type="submit" value="Delete" class="btn btn-lg green-btn" />
           <button class="btn btn-lg btn-primary">
-            @Html.ActionLink("cancel", "Details", "Posts", new { slug = @Model.Slug }, null)
+            @Html.ActionLink("Cancel", "Details", "Posts", new { slug = @Model.Slug }, null)
           </button>
         </div>
     }
@@ -48,9 +48,8 @@
                 <span>@comment.Body</span>
               </div>
             </div>
-            <hr class="blog-ridges" />
       }
-      <a class="comment-date pill-button" href="#">back to top</a>
+      <div class="row center-button"><a class="comment-date pill-button" href="#">back to top</a></div>
     </div>
     <div class="col-md-2"></div>
   </div>

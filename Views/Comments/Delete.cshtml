@@ -18,11 +18,11 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-          <input type="submit" value="delete" class="btn green-btn" /> |
+          <input type="submit" value="Delete" class="btn green-btn" />
+          <button class="btn btn-primary">
+            @Html.ActionLink("Cancel", "Details", "Posts", new { slug = @Model.Post.Slug }, null)
+          </button>
         </div>
-        <button class="btn btn-primary">
-          @Html.ActionLink("cancel", "Details", "Posts", new { slug = @Model.Post.Slug }, null)
-        </button>
     }
   </div>
 </div>
