@@ -1,44 +1,8 @@
-﻿To-Do List
+﻿
+To-Do List
 -----------
-
-Layout:
--Search Btn Size on smaller screens
-
-Index:
--image size on smaller screens (CSS)
-
-Details:
--image size on smaller screens (CSS)
--add image to details page
-
-Delete:
--add image to delete page
-
-Create:
--fix outer margin
-
-Edit/Delete Comments:
--Side Margins, please
-
-Register:
-
-
-
-
-
-------------
-Contact Page: STYLING
-Home Index: STYLING
-Change Password: ?
-Manage Index: ?
-Manage Logins: ?
-SetPassword: ?
-
-
--customize pagedlist
--Back To Top Button to Center (details/delete), and styled
--style contact page
 -style logout page
--manage page
--look into BUTTON PADDING, particularly on the edit, delete buttons
+
+-add change display name ability
+-add moderator change password requirement
 -test external login confirmation (getting the email fields)

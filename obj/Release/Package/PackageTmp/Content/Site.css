@@ -138,7 +138,7 @@ main .container {
 }
 
 .spacer {
-    height: 100px;
+    height: 30px;
 }
 
 #search {
@@ -152,7 +152,8 @@ main .container {
     font-weight:bolder;
 }
 
-#special-link {
+#special-link,
+.text-info {
     color: #9ddd98;
 }
 
@@ -168,25 +169,32 @@ main .container {
     position:fixed;
     bottom: 20px;
     right:20px;
-}
-
-#login {
     z-index:1000;
 }
 
-.popover {
+.popover-content {
     width:275px;
-    max-width: 700px;
-    position:fixed;
 }
 
 .popover .form-control {
     width:175px;
 }
 
-.pages li  {
-    color:
+.post-comment {
+    padding:15px 0;
 }
+
+.comment-body {
+    padding-right:8px;
+}
+
+ .image-container {
+    max-width:500px; 
+    float:left; 
+    margin: 0 20px 10px 0;
+ }
+
+
 
 /*------------------------------
 	BUTTONS
@@ -280,6 +288,10 @@ main .container {
     margin-right: 40px;
 }
 
+#header-image {
+    margin-bottom: 30px;
+}
+
 
 /*------------------------------
 	ALERTS
@@ -326,6 +338,11 @@ main .container {
 	transition-duration:0.7s;
 }
 
+.navbar-right {
+    font-size:16px;
+    padding:7px 5px 0 0;
+}
+
 .navbar-logo {
 	padding:7px 0 0 0;
 	width:50px;
@@ -354,7 +371,7 @@ main .container {
 #blognav li a {
     border-left: 4px solid transparent;
     transition-duration:.3s;
-    padding-right:20px;
+    padding-right:10px;
 }
 
 #blognav li a:hover{
@@ -828,6 +845,10 @@ blockquote footer {
 	CONTACT
 ------------------------------*/
 
+#contact-form input {
+    margin-bottom:20px !important;
+}
+
 #contact {
 	color:#333333;
 	text-align:center;
@@ -1188,16 +1209,6 @@ form label {
 		display:block;
 	}
 }
-	
-@media (min-width:1px) and (max-width:939px) {
-	.date-small {
-		display:block;
-	}
-	.date-big {
-		display:none;
-	}
-	
-}
 
 
 /*------------------------------
@@ -1233,6 +1244,7 @@ form label {
 	}
 		
 }
+
 
 /*------------------------------
 	SMALL DEVICES
@@ -1306,18 +1318,42 @@ form label {
     }
 }
 
+@media (min-width:1px) and (max-width:939px) {
+	.date-small {
+		display:block;
+	}
+	.date-big {
+		display:none;
+	}
+	
+}
+
 /*------------------------------
 	EXTRA SMALL DEVICES
 ------------------------------*/
 @media (max-width:460px) {
-    .navbar-brand .tag {
+    .navbar-brand .tag,
+    #popover-button {
         display:none;
     }
 }
 
 @media (max-width:767px) {
 
-.navbar-brand .tag {
+    .image-container {
+        max-width:350px; 
+        float:left; 
+    }
+
+     #popover-button {
+        display:none;
+    }
+
+     .popover-content .form-control {
+         width:100%;
+     }
+
+    .navbar-brand .tag {
         display:none;
     }
 
@@ -1563,7 +1599,14 @@ form label {
     .cs-style-4 figcaption {
         height:232.5px;
     }
+
+    .image-container {
+        max-width:300px; 
+        float:left; 
+    }
 }
+
+
 
 /*------------------------------
 	PHONES 548px width
@@ -1597,6 +1640,12 @@ form label {
 ------------------------------*/
 
 @media (max-width:480px) {
+    
+    .image-container {
+        max-width:100%; 
+        margin: 0 0 10px 0;
+    }
+
 	.timeline {
 		margin:25px 0 0 210px;
 	}

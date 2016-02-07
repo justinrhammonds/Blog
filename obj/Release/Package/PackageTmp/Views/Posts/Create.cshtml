@@ -16,13 +16,14 @@
 //model.Comments (list)
 *@
 
+<div class="container">
   <h2>Create a Post</h2>
-@using (Html.BeginForm("Create", "Posts", FormMethod.Post,
-    new { enctype = "Multipart/form-data" }))
-{
+  @using (Html.BeginForm("Create", "Posts", FormMethod.Post,
+              new { enctype = "Multipart/form-data" }))
+  {
       @Html.AntiForgeryToken()
       <div class="form-horizontal">
-        <hr class="blog-ridges"/>
+        <hr class="blog-ridges" />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
@@ -51,7 +52,7 @@
 
         <div class="form-group">
           <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create"  class="btn btn-lg green-btn" />
+            <input type="submit" value="Create" class="btn btn-lg green-btn" />
             <button class="btn btn-lg btn-primary">
               @Html.ActionLink("Cancel", "Index", "Posts")
             </button>
@@ -59,6 +60,7 @@
         </div>
       </div>
   }
+</div>
 
 @section Scripts {
   <script src="~/Scripts/tinymce/tinymce.min.js"></script>

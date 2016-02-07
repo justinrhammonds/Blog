@@ -4,42 +4,21 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
-                
+       
   <img id="header-image" src="~/Content/second-movement.svg" />
 
   <div class="container" id="index-top">
-    <div class="row">
-      <div class="col-xs-8 col-xs-offset-2">
-
-        @*<a class="sticky-search" data-placement="bottom" data-toggle="popover" data-title="Login" data-container="body" type="button" data-html="true" href="#" id="login">Search</a>
-
-        <div id="popover-content" class="hide">
-          <form class="form-inline" action="@Url.Action("Index", "Posts", new { searchTerm=ViewBag.Search })">
-            <div class="form-group">
-              <input placeholder="Search This Blog..." type="text" name="searchTerm" value="@ViewBag.Search" class="form-control" />
-              <input type="submit" value="Search" class="btn btn-primary" />
-            </div>
-          </form>
-        </div>*@
-
-
-
-
-
-      </div>
-      <div class="col-xs-2"></div>
-    </div>
     <div class="row spacer"></div>
   @foreach (var item in Model)
   {
       <div class="row">
           @if (item.MediaUrl != null)
           {
-            <div class="col-sm-4">
+            <div class="col-md-4 col-sm-6 col-xs-12">
               <img class="img-border img-responsive" src="@Url.Content(item.MediaUrl)" alt="" />
+              <br />
             </div>
-            <div class="col-sm-8">
+            <div class="col-md-8 col-sm-6 col-xs-12s">
               <div class="col-sm-12">
                 <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
                 <p class="post-date">
@@ -102,7 +81,6 @@
             <hr class="blog-ridges" />
         </div>
       </div>
-      
 
   }
     <div class="row center-button"><a class="comment-date pill-button" href="#">back to top</a></div>
@@ -113,8 +91,6 @@
         <p class="pages">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchFilter = ViewBag.Search }))</p>
     }
 </div>
-
-
 
 @section Scripts {
   <script>
@@ -160,32 +136,5 @@
     });
   </script>
 
-
-
 }
 
-@*
-    // if you need to limit to a specific role...
-    @if (User.IsInRole("Admin")) {
-      @Html.ActionLink("Create New", "Create")
-    }
-
-              @Html.DisplayNameFor(model => model.Created)
-              @Html.DisplayNameFor(model => model.Updated)
-              @Html.DisplayNameFor(model => model.Title)
-              @Html.DisplayNameFor(model => model.Body)
-              @Html.DisplayNameFor(model => model.MediaUrl)
-              @Html.DisplayNameFor(model => model.Slug)
-              @Html.DisplayNameFor(model => model.Category)
-  @foreach (var item in Model) {
-              @Html.DisplayFor(modelItem => item.Created)
-              @Html.DisplayFor(modelItem => item.Updated)
-              @Html.DisplayFor(modelItem => item.Title)
-              @Html.Raw(item.Body)
-              @Html.DisplayFor(modelItem => item.MediaUrl)
-              @Html.DisplayFor(modelItem => item.Slug)
-              @Html.DisplayFor(modelItem => item.Category)
-              @Html.ActionLink("Edit", "Edit", new { id=item.Slug }) |
-              @Html.ActionLink("Details", "Details", new { slug=item.Slug }) |
-              @Html.ActionLink("Delete", "Delete", new { id=item.Slug })
-*@
