@@ -59,7 +59,7 @@
           @foreach (var comment in Model.Comments)
           {
               <div class="col-xs-12">
-                <span class="comment-name">@comment.Author.DisplayName | </span><span class="comment-date">@comment.CommentCreated.ToString("dddd, MMMM d, yyyy 'at' h:mm tt")</span>
+                <span class="comment-name">@comment.Author.DisplayName | </span><span class="comment-date">@comment.CommentCreated.ToString("dddd, MMMM d, yyyy")</span>
 
                 <div class="post-comment">
                   <span class="comment-body">@comment.Body</span>
