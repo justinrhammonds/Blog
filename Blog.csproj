@@ -262,6 +262,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\creative-brands.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\GitHub_Logo.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\second-movement.svg" />
     <Content Include="Content\skin.min.css" />
